@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { projectService } from "@/services/mockService";
+import { projectService, Project } from "@/services/mockService";
 
 export default function ProjectsPage() {
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   useEffect(() => setProjects(projectService.list()), []);
 
   return (

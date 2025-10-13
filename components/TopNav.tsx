@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function TopNav({ role }: { role: string }) {
   return (
@@ -7,7 +8,7 @@ export default function TopNav({ role }: { role: string }) {
       <div className="flex items-center space-x-3">
         <div className="text-sm muted">Signed in as <span className="font-medium text-gray-900">{role}</span></div>
         <div>
-          <a href="/" className="text-sm text-white btn-primary px-3 py-1 rounded">Sign out</a>
+          <Link href="/" className="text-sm text-white btn-primary px-3 py-1 rounded">Sign out</Link>
         </div>
       </div>
     </header>

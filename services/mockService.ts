@@ -1,4 +1,4 @@
-type Project = {
+export type Project = {
   id: string;
   title: string;
   description?: string;
@@ -6,7 +6,7 @@ type Project = {
   status?: 'open' | 'assigned' | 'closed';
 };
 
-type Application = {
+export type Application = {
   id: string;
   projectId: string;
   student: string;

@@ -2,11 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import DashboardLayout from '@/components/DashboardLayout';
-import { projectService } from '@/services/mockService';
+import { projectService, Project } from '@/services/mockService';
+import Link from 'next/link';
 
 export default function StudentProjects() {
   const role = 'student';
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     setProjects(projectService.list());
@@ -28,7 +29,7 @@ export default function StudentProjects() {
                 <div className="text-sm mb-2">
                   <span className={`px-2 py-1 rounded text-xs ${p.status === 'open' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'}`}>{p.status}</span>
                 </div>
-                <a href="/student/apply" className="text-sm text-blue-600">Apply</a>
+                <Link href="/student/apply" className="text-sm text-blue-600">Apply</Link>
               </div>
             </div>
           ))}

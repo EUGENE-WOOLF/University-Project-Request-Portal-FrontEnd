@@ -7,17 +7,17 @@ const NotificationContext = createContext({
 });
 
 export function NotificationProvider({ children }: { children: React.ReactNode }) {
-  const [msg, setMsg] = useState('');
+  const [toast, setToast] = useState('');
 
   function notify(m: string) {
-    setMsg(m);
-    setTimeout(() => setMsg(''), 3000);
+    setToast(m);
+    setTimeout(() => setToast(''), 3000);
   }
 
   return (
     <NotificationContext.Provider value={{ notify }}>
       {children}
-      {msg && <Toast>{msg}</Toast>}
+  {toast && <Toast>{toast}</Toast>}
     </NotificationContext.Provider>
   );
 }

@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import DashboardLayout from '@/components/DashboardLayout';
-import { applicationService } from '@/services/mockService';
+import { applicationService, Application } from '@/services/mockService';
 
 export default function ProfessorApplications() {
   const role = 'professor';
-  const [apps, setApps] = useState<any[]>([]);
+  const [apps, setApps] = useState<Application[]>([]);
   useEffect(() => setApps(applicationService.list()), []);
 
   return (
