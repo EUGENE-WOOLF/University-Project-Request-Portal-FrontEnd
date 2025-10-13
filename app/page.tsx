@@ -2,82 +2,97 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col">
-      {/* Hero Section */}
-      <section className="bg-blue-600 text-white text-center py-24 px-4">
-        <h1 className="text-5xl font-bold mb-4">
-          University Project Request Portal
-        </h1>
-        <p className="text-xl mb-8">
-          Find, request, and manage projects effortlessly.
-        </p>
-        <div className="flex justify-center gap-4">
-          <Link
-            href="/student/projects"
-            className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100"
-          >
-            Students
+    <main className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <header className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-md flex items-center justify-center text-white font-bold">UP</div>
+          <div>
+            <div className="font-semibold text-lg">UPR Portal</div>
+            <div className="text-sm text-gray-500">Student Project Application System</div>
+          </div>
+        </div>
+        <nav className="space-x-4 hidden md:block">
+          <Link href="/projects" className="text-gray-600 hover:text-gray-900">Projects</Link>
+          <Link href="/student" className="text-gray-600 hover:text-gray-900">Students</Link>
+          <Link href="/professor" className="text-gray-600 hover:text-gray-900">Professors</Link>
+          <Link href="/mentor" className="text-gray-600 hover:text-gray-900">Mentors</Link>
+        </nav>
+      </header>
+
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+              Find, Request, and Manage Student Projects
+            </h1>
+            <p className="text-gray-600 mb-6 max-w-xl">
+              A centralized portal for professors, mentors, and students to collaborate on university projects — post projects, request mentorship, and apply with documents.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/student" className="inline-flex items-center justify-center px-6 py-3 btn-primary rounded-md shadow">
+                Browse Projects
+              </Link>
+              <Link href="/professor" className="inline-flex items-center justify-center px-6 py-3 btn-secondary rounded-md">
+                Professor Dashboard
+              </Link>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="text-sm text-gray-500">Open Projects</div>
+                <div className="text-lg font-semibold">12</div>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="text-sm text-gray-500">Pending Applications</div>
+                <div className="text-lg font-semibold">3</div>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="text-sm text-gray-500">Active Mentors</div>
+                <div className="text-lg font-semibold">7</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden lg:block">
+            <div className="w-full h-80 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg flex items-center justify-center">
+              {/* Decorative illustration placeholder */}
+              <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="220" height="220" rx="20" fill="url(#g)" />
+                <defs>
+                  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#EEF2FF" />
+                    <stop offset="1" stopColor="#EFF6FF" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 py-12">
+        <h3 className="text-2xl font-semibold mb-6 text-center">Choose your role</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <Link href="/student" className="block p-6 rounded-lg role-card hover:shadow-lg transition">
+            <div className="font-semibold mb-1">Student</div>
+            <div className="text-sm muted">Browse projects and submit applications with your documents.</div>
           </Link>
-          <Link
-            href="/professor/dashboard"
-            className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100"
-          >
-            Professors
+
+          <Link href="/professor" className="block p-6 rounded-lg role-card hover:shadow-lg transition">
+            <div className="font-semibold mb-1">Professor</div>
+            <div className="text-sm muted">Post projects and review student applications.</div>
           </Link>
-          <Link
-            href="/coordinator/dashboard"
-            className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100"
-          >
-            Coordinators
+
+          <Link href="/mentor" className="block p-6 rounded-lg role-card hover:shadow-lg transition">
+            <div className="font-semibold mb-1">Mentor</div>
+            <div className="text-sm muted">Request projects and share mentor materials with students.</div>
           </Link>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <h2 className="text-3xl font-bold text-center mb-12">Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="font-bold text-xl mb-2">Browse Projects</h3>
-            <p>Students can view available projects with details.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="font-bold text-xl mb-2">Request Approval</h3>
-            <p>Professors manage incoming project requests efficiently.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="font-bold text-xl mb-2">Coordinator Oversight</h3>
-            <p>Post projects and monitor requests in a single dashboard.</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="font-bold text-xl mb-2">Secure & Role-Based</h3>
-            <p>Access control ensures users only see what they’re allowed.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works Section */}
-      <section className="py-20 px-4 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-12">How It Works</h2>
-        <ol className="space-y-8 list-decimal list-inside text-left">
-          <li>
-            <strong>Sign Up / Login:</strong> Create your account with your
-            role.
-          </li>
-          <li>
-            <strong>Explore / Manage Projects:</strong> Students request,
-            Professors approve, Coordinators post.
-          </li>
-          <li>
-            <strong>Track & Complete:</strong> Monitor requests and assignments
-            efficiently.
-          </li>
-        </ol>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 text-center">
-        <p>&copy; 2025 University Project Portal. All rights reserved.</p>
+      <footer className="border-t bg-white py-8">
+        <div className="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500">© 2025 UPR Portal — Built for demo</div>
       </footer>
     </main>
   );
